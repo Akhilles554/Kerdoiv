@@ -1,0 +1,58 @@
+Person table
+Tárolja a email-t, ID-t,
+ID int not null primary key AUTO,
+email nvarchar(255) null,
+CatName varchar(100) null,
+irányítószám varchar(10) null,
+helység varchar(255) null,
+utca varchar(100) null, 
+házszám varchar(100) null,
+
+Questionaire table
+ID int not null primary key AUTO,
+QuestionaireHeadID int FOREIGN KEYQuestionaireHead(ID),
+PersonID int FOREIGN KEY Person(ID)
+SubmitDate Datetime default getdate,
+
+VelemenyCeg int  null,
+CompanyDescription nvarchar(1000),
+
+IsOnFoot bool default 0 not null,
+IsRoller bool default 0 not null,
+IsTrain bool default 0 not null,
+IsPlane bool default 0 not null,
+IsRocket bool default 0 not null,
+
+IsVicinal bool default 0 not null,
+IsIC bool default 0 not null,
+IsShinkansen bool default 0 not null,
+
+FootSize int,
+
+QuestionaireHead table          // A deadline csak a kérdőívre vonatkozik a személyes adatokra nem
+ID int not null primary key AUTO,
+DeadLine datetime,
+
+ALTER TABLE `Person` 
+ADD CONSTRAINT `Person.email_validation` 
+    CHECK (`email` REGEXP "^[a-zA-Z0-9][a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]*?[a-zA-Z0-9._-]?@[a-zA-Z0-9][a-zA-Z0-9._-]*?[a-zA-Z0-9]?\\.[a-zA-Z]{2,63}$");
+
+ALTER TABLE `Questionaire` 
+ADD CONSTRAINT `Questionaire.VelemenyCeg` 
+    CHECK (`VelemenyCeg` is null or `VelemenyCeg` in(1,2,3));
+    1: Tetszik
+    2: Nem tetszik
+    3: Nem tudom
+
+ALTER TABLE `Questionaire` 
+ADD CONSTRAINT `Questionaire.CompanyDescription` 
+    CHECK ( (`VelemenyCeg` = 3 and  CompanyDescription is not null) or ((`VelemenyCeg` is null or `VelemenyCeg` != 3) and CompanyDescription is null));
+
+Questionaire table
+ID int not null primary key AUTO,
+Code varchar(10)
+Value nvarchar(1000)
+
+QuestionaireHeader table
+PersonID int FOREIGN KEY Person(ID)
+Leadta DateTime2

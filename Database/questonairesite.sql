@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- GÈp: 127.0.0.1:3306
--- LÈtrehoz·s ideje: 2022. Nov 29. 18:51
--- Kiszolg·lÛ verziÛja: 5.7.36
--- PHP verziÛ: 7.4.26
+-- G√©p: 127.0.0.1:3306
+-- L√©trehoz√°s ideje: 2022. Nov 29. 18:51
+-- Kiszolg√°l√≥ verzi√≥ja: 5.7.36
+-- PHP verzi√≥: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES latin1 */;
 
 --
--- Adatb·zis: `questonairesite`
+-- Adatb√°zis: `questonairesite`
 --
 
 -- --------------------------------------------------------
 
 --
--- T·bla szerkezet ehhez a t·bl·hoz `person`
+-- T√°bla szerkezet ehhez a t√°bl√°hoz `person`
 --
 
 DROP TABLE IF EXISTS `person`;
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `person` (
 -- --------------------------------------------------------
 
 --
--- T·bla szerkezet ehhez a t·bl·hoz `questionaire`
+-- T√°bla szerkezet ehhez a t√°bl√°hoz `questionaire`
 --
 
 DROP TABLE IF EXISTS `questionaire`;
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `questionaire` (
 -- --------------------------------------------------------
 
 --
--- T·bla szerkezet ehhez a t·bl·hoz `questionairehead`
+-- T√°bla szerkezet ehhez a t√°bl√°hoz `questionairehead`
 --
 
 DROP TABLE IF EXISTS `questionairehead`;
@@ -82,11 +82,11 @@ CREATE TABLE IF NOT EXISTS `questionairehead` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;
 
 --
--- MegkˆtÈsek a kiÌrt t·bl·khoz
+-- Megk√∂t√©sek a ki√≠rt t√°bl√°khoz
 --
 
 --
--- MegkˆtÈsek a t·bl·hoz `questionaire`
+-- Megk√∂t√©sek a t√°bl√°hoz `questionaire`
 --
 ALTER TABLE `questionaire`
   ADD CONSTRAINT `FK_Questionaire_QuestionaireHeadID_QuestionaireHead` FOREIGN KEY (`QuestionaireHeadID`) REFERENCES `questionairehead` (`ID`),

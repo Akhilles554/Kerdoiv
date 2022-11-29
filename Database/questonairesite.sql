@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE IF NOT EXISTS `person` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Email` varchar(255) COLLATE latin2_hungarian_ci NOT NULL,
   `CatName` varchar(100) COLLATE latin2_hungarian_ci DEFAULT NULL,
   `ZipCode` int(11) DEFAULT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `questionaire` (
 
 DROP TABLE IF EXISTS `questionairehead`;
 CREATE TABLE IF NOT EXISTS `questionairehead` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DeadLine` datetime NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;

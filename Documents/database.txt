@@ -32,6 +32,7 @@ FootSize int,
 QuestionaireHead table          // A deadline csak a kérdőívre vonatkozik a személyes adatokra nem
 ID int not null primary key AUTO,
 DeadLine datetime,
+Email nvarchar(255) null
 
 ALTER TABLE `Person` 
 ADD CONSTRAINT `Person.email_validation` 

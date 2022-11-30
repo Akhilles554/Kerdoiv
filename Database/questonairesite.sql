@@ -80,6 +80,7 @@ DROP TABLE IF EXISTS `questionairehead`;
 CREATE TABLE IF NOT EXISTS `questionairehead` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `DeadLine` datetime NOT NULL,
+  `DeadLine` nvarchar(255) null,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin2 COLLATE=latin2_hungarian_ci;
 
